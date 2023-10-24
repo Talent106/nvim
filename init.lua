@@ -169,7 +169,7 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'onedark',
+        theme = 'catppuccin',
         component_separators = '|',
         section_separators = '',
       },
@@ -626,14 +626,19 @@ local ui = require("harpoon.ui")
 vim.keymap.set("n", "<leader>a", mark.add_file)
 vim.keymap.set("n", "<leader>A", mark.rm_file)
 vim.keymap.set("n", "<C-e>", ui.toggle_quick_menu)
-vim.keymap.set("n", "<C-l>", mark.clear_all)
+vim.keymap.set("n", "<leader>al", mark.clear_all)
 
 vim.keymap.set("n", "<leader>h", function() ui.nav_file(1) end)
 vim.keymap.set("n", "<leader>j", function() ui.nav_file(2) end)
 vim.keymap.set("n", "<leader>k", function() ui.nav_file(3) end)
 vim.keymap.set("n", "<leader>l", function() ui.nav_file(4) end)
 
+vim.keymap.set("n", "<leader>H", function() ui.nav_file(5) end)
+vim.keymap.set("n", "<leader>J", function() ui.nav_file(6) end)
+vim.keymap.set("n", "<leader>K", function() ui.nav_file(7) end)
+vim.keymap.set("n", "<leader>L", function() ui.nav_file(8) end)
 
+--  SAVE ALL FILES
 vim.keymap.set("n", "<leader>W", "<Cmd>:wa<CR>")
 
 -- NEOTREE
