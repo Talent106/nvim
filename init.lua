@@ -216,6 +216,10 @@ require('lazy').setup({
     'nvim-treesitter/nvim-treesitter',
     dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects',
+      {
+        "nvim-treesitter/nvim-treesitter-context",
+        opts = { mode = "cursor", max_lines = 1 }
+      },
     },
     build = ':TSUpdate',
   },
@@ -637,6 +641,11 @@ vim.keymap.set("n", "<leader>H", function() ui.nav_file(5) end)
 vim.keymap.set("n", "<leader>J", function() ui.nav_file(6) end)
 vim.keymap.set("n", "<leader>K", function() ui.nav_file(7) end)
 vim.keymap.set("n", "<leader>L", function() ui.nav_file(8) end)
+
+-- TREESITTER CONTEXT
+vim.keymap.set("n", "<leader>ct", function()
+  require("treesitter-context").go_to_context()
+end, { silent = true })
 
 --  SAVE ALL FILES
 vim.keymap.set("n", "<leader>W", "<Cmd>:wa<CR>")
