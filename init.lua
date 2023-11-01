@@ -305,6 +305,33 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- See `:help telescope` and `:help telescope.setup()`
 require('telescope').setup {
   defaults = {
+    path_display={
+      -- "smart"
+      -- "shorten"
+      "truncate"
+    },
+    vimgrep_arguments = {
+      "rg",
+      "--follow",        -- Follow symbolic links
+      "--hidden",        -- Search for hidden files
+      "--no-heading",    -- Don't group matches by each file
+      "--with-filename", -- Print the file path with the matched lines
+      "--line-number",   -- Show line numbers
+      "--column",        -- Show column numbers
+      "--smart-case",    -- Smart case search
+
+      -- Exclude some patterns from search
+      "--glob=!**/.git/*",
+      "--glob=!**/.idea/*",
+      "--glob=!**/.angular/*",
+      "--glob=!**/.vscode/*",
+      "--glob=!**/build/*",
+      "--glob=!**/dist/*",
+      "--glob=!**/yarn.lock",
+      "--glob=!**/package-lock.json",
+      "--glob=!**/vendor",
+      "--glob=!**/.github/*",
+    },
     mappings = {
       i = {
         ['<C-u>'] = false,
@@ -314,8 +341,27 @@ require('telescope').setup {
   },
   pickers = {
     find_files = {
-      theme = "dropdown",
-    }
+--    shorten_path=true,
+    theme = "dropdown",
+     hidden = true,
+        -- needed to exclude some files & dirs from general search
+        -- when not included or specified in .gitignore
+      find_command = {
+        "rg",
+        "--files",
+        "--hidden",
+        "--glob=!**/.git/*",
+        "--glob=!**/.idea/*",
+        "--glob=!**/.vscode/*",
+        "--glob=!**/build/*",
+        "--glob=!**/dist/*",
+        "--glob=!**/yarn.lock",
+        "--glob=!**/package-lock.json",
+        "--glob=!**/.angular/*",
+        "--glob=!**/vendor",
+        "--glob=!**/.github/*",
+      },
+    },
   },
 }
 
@@ -345,10 +391,10 @@ vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = 
 -- See `:help nvim-treesitter`
 require('nvim-treesitter.configs').setup {
   -- Add languages to be installed here that you want installed for treesitter
-  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim' },
+  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'dot' },
 
   -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
-  auto_install = false,
+  auto_install = true,
 
   highlight = { enable = true },
   indent = { enable = true },
