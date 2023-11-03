@@ -319,6 +319,7 @@ require('telescope').setup {
       "--line-number",   -- Show line numbers
       "--column",        -- Show column numbers
       "--smart-case",    -- Smart case search
+      "--no-ignore",
 
       -- Exclude some patterns from search
       "--glob=!**/.git/*",
@@ -331,6 +332,7 @@ require('telescope').setup {
       "--glob=!**/package-lock.json",
       "--glob=!**/vendor",
       "--glob=!**/.github/*",
+      "--glob=!**.cache",
     },
     mappings = {
       i = {
@@ -350,6 +352,7 @@ require('telescope').setup {
         "rg",
         "--files",
         "--hidden",
+        "--no-ignore",
         "--glob=!**/.git/*",
         "--glob=!**/.idea/*",
         "--glob=!**/.vscode/*",
@@ -360,6 +363,7 @@ require('telescope').setup {
         "--glob=!**/.angular/*",
         "--glob=!**/vendor",
         "--glob=!**/.github/*",
+        "--glob=!**.cache",
       },
     },
   },
