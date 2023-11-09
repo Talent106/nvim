@@ -28,6 +28,7 @@ require('telescope').setup {
       "--glob=!**/vendor",
       "--glob=!**/.github/*",
       "--glob=!**.cache",
+      "--glob=!**/node_modules/*",
     },
     mappings = {
       i = {
@@ -53,7 +54,7 @@ require('telescope').setup {
         "--glob=!**/yarn.lock",
         "--glob=!**/package-lock.json",
         "--glob=!**/.angular/*",
-        "--glob=!**/vendor",
+        "--glob=!**/node_modules/*",
         "--glob=!**/.github/*",
         "--glob=!**.cache",
       },
