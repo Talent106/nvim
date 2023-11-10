@@ -9,6 +9,15 @@ require('lspconfig').eslint.setup({
   end,
 })
 
+-- PHPACTOR
+require('lspconfig').phpactor.setup{
+    on_attach = on_attach,
+    init_options = {
+        ["language_server_phpstan.enabled"] = true,
+        ["language_server_php_cs_fixer.enabled"] = true,
+    }
+}
+
 -- NEOTREE
 require("neo-tree").setup({
   close_if_last_window = true,

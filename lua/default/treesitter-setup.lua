@@ -9,6 +9,7 @@ require('nvim-treesitter.configs').setup {
     'tsx',
     'javascript',
     'typescript',
+    'php',
     'vimdoc',
     'vim',
     'dot',
