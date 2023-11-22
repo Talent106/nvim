@@ -60,20 +60,20 @@ require('lazy').setup({
     },
   },
 
-  {
-    'navarasu/onedark.nvim',
-    priority = 1000,
+  -- {
+  --   'navarasu/onedark.nvim',
+  --   priority = 1000,
     -- config = function()
       -- vim.cmd.colorscheme 'onedark'
     -- end,
-  },
+  -- },
 
   {
     "catppuccin/nvim",
     name = "catppuccin",
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme "catppuccin"
+      vim.cmd.colorscheme "catppuccin-macchiato" -- catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
     end,
   },
 
@@ -140,5 +140,37 @@ require('lazy').setup({
   {
     'christoomey/vim-tmux-navigator',
     lazy = false,
+  },
+
+  {
+    'goolord/alpha-nvim',
+    config = function ()
+         local alpha = require'alpha'
+         local dashboard = require'alpha.themes.dashboard'
+         dashboard.section.header.val = {
+             [[                               __                ]],
+             [[  ___     ___    ___   __  __ /\_\    ___ ___    ]],
+             [[ / _ `\  / __`\ / __`\/\ \/\ \\/\ \  / __` __`\  ]],
+             [[/\ \/\ \/\  __//\ \_\ \ \ \_/ |\ \ \/\ \/\ \/\ \ ]],
+             [[\ \_\ \_\ \____\ \____/\ \___/  \ \_\ \_\ \_\ \_\]],
+             [[ \/_/\/_/\/____/\/___/  \/__/    \/_/\/_/\/_/\/_/]],
+         }
+         dashboard.section.buttons.val = {
+             dashboard.button( "CTRL-P", "  Find files"),
+             dashboard.button( "SPC-/", "  Open recent"),
+             dashboard.button( "SPC-e", "  Open file tree"),
+             dashboard.button( "q", "󰅚  Quit NVIM" , ":qa<CR>"),
+         }
+         local handle = io.popen('fortune')
+         local fortune = handle:read("*a")
+         handle:close()
+         dashboard.section.footer.val = fortune
+
+         dashboard.config.opts.noautocmd = true
+
+         vim.cmd[[autocmd User AlphaReady echo 'ready']]
+
+         alpha.setup(dashboard.config)
+     end
   },
 }, {})

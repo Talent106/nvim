@@ -38,7 +38,8 @@ end
 local servers = {
   angularls = {},
   jsonls = {},
-  phpactor = {},
+  -- phpactor = {},
+  intelephense = {},
   tailwindcss = {},
   tsserver = {},
   html = { filetypes = { 'html', 'twig', 'hbs'} },
