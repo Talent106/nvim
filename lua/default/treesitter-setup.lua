@@ -33,6 +33,7 @@ require('nvim-treesitter.configs').setup {
     'dot',
     'bash',
     'blade',
+    'angular',
   },
   auto_install = true,
   highlight = { enable = true },

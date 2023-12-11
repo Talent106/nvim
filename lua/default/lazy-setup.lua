@@ -90,13 +90,12 @@ require('lazy').setup({
   },
 
   {
+    -- Add indentation guides even on blank lines
     'lukas-reineke/indent-blankline.nvim',
     -- Enable `lukas-reineke/indent-blankline.nvim`
-    -- See `:help indent_blankline.txt`
-    opts = {
-      char = '┊',
-      show_trailing_blankline_indent = false,
-    },
+    -- See `:help ibl`
+    main = 'ibl',
+    opts = {},
   },
 
   { 'numToStr/Comment.nvim', opts = {} },
@@ -120,6 +119,7 @@ require('lazy').setup({
     'nvim-treesitter/nvim-treesitter',
     dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects',
+      { "nvim-treesitter/nvim-treesitter-angular" },
       {
         "nvim-treesitter/nvim-treesitter-context",
         opts = { mode = "cursor", max_lines = 1 }
