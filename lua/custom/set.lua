@@ -17,8 +17,8 @@ vim.g.copilot_assume_mapped = true
 vim.api.nvim_create_autocmd(
   "BufWritePre",
   {
-    pattern = { 'javascript', 'typescript', 'javascriptreact', 'typescriptreact', '*.html', '*.php' }, 
-    callback = function() vim.lsp.buf.format() end 
+    pattern = { 'javascript', 'typescript', 'javascriptreact', 'typescriptreact', '*.html', '*.php' },
+    callback = function() vim.lsp.buf.format() end
   }
 )
 

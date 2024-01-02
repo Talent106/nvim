@@ -30,6 +30,9 @@ vim.keymap.set("n", "<leader>ct", function()
   require("treesitter-context").go_to_context()
 end, { silent = true })
 
+-- FUGITIVE
+vim.keymap.set("n", "<leader>gt", vim.cmd.Git)
+
 -- NEOTREE
 vim.keymap.set("n", "<leader>e", '<Cmd>Neotree toggle<CR>')
 
