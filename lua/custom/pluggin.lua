@@ -12,9 +12,9 @@ require('lspconfig').eslint.setup({
 -- PHPACTOR
 require('lspconfig').phpactor.setup{
     init_options = {
-        ["language_server_phpstan.enabled"] = false,
+        ["language_server_phpstan.enabled"] = true,
         ["language_server_php_cs_fixer.enabled"] = true,
-        ["language_server.diagnostics_on_update"] = true,
+        ["language_server.diagnostics_on_update"] = false,
         ["indexer.exclude_patterns"] = {
           "/vendor/**/Tests/**/*",
           "/vendor/**/tests/**/*",
