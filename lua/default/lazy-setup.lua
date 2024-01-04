@@ -2,8 +2,8 @@ require('lazy').setup({
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
   'github/copilot.vim',
-  'ThePrimeagen/harpoon',
   'tpope/vim-sleuth',
+  'nvim-lua/plenary.nvim',
 
   {
     'neovim/nvim-lspconfig',
@@ -127,19 +127,22 @@ require('lazy').setup({
     },
     build = ':TSUpdate',
   },
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v3.x",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons",
-      "MunifTanjim/nui.nvim",
-    }
-  },
   
   {
     'christoomey/vim-tmux-navigator',
     lazy = false,
+  },
+
+  {
+    'stevearc/oil.nvim',
+    opts = {},
+    -- Optional dependencies
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+  },
+
+  {
+    "ThePrimeagen/harpoon",
+    branch = "harpoon2",
   },
 
   {
@@ -173,10 +176,4 @@ require('lazy').setup({
          alpha.setup(dashboard.config)
      end
   },
-  {
-    'stevearc/oil.nvim',
-    opts = {},
-    -- Optional dependencies
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-  }
 }, {})

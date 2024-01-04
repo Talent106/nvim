@@ -1,3 +1,6 @@
+-- HARPOON
+require("harpoon"):setup()
+
 -- ESLINT
 require('lspconfig').eslint.setup({
   pattern = { 'javascript', 'typescript', 'javascriptreact', 'typescriptreact' },
@@ -23,26 +26,4 @@ require('lspconfig').phpactor.setup{
         },
     }
 }
-
--- NEOTREE
-require("neo-tree").setup({
-  close_if_last_window = true,
-  buffers = {
-    follow_current_file = { enabled = true },
-  },
-  filesystem = {
-    follow_current_file = { enabled = true },
-    filtered_items = {
-      hide_dotfiles = false,
-      hide_gitignored = false,
-      hide_by_name = {
-        "node_modules"
-      },
-      never_show = {
-        ".DS_Store",
-        "thumbs.db"
-      },
-    },
-  },
-})
 
