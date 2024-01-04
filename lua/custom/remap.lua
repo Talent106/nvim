@@ -32,6 +32,8 @@ end, { silent = true })
 
 -- FUGITIVE
 vim.keymap.set("n", "<leader>gt", vim.cmd.Git)
+-- OIL.NVIM
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory on OIL" })
 
 -- NEOTREE
 vim.keymap.set("n", "<leader>e", '<Cmd>Neotree toggle<CR>')

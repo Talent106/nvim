@@ -173,4 +173,10 @@ require('lazy').setup({
          alpha.setup(dashboard.config)
      end
   },
+  {
+    'stevearc/oil.nvim',
+    opts = {},
+    -- Optional dependencies
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+  }
 }, {})
