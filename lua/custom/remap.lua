@@ -30,8 +30,14 @@ vim.keymap.set("n", "<leader>ct", function()
   require("treesitter-context").go_to_context()
 end, { silent = true })
 
--- FUGITIVE
-vim.keymap.set("n", "<leader>gt", vim.cmd.Git)
+-- FUGITIVE (GIT)
+vim.keymap.set("n", "<leader>gs", vim.cmd.Git, { desc = 'Open [G]it [S]tatus panel' })
+vim.keymap.set("n", "<leader>gp", "<Cmd>:Git pull<CR>", { desc = 'Execute [G]it [P]ull command' })
+vim.keymap.set("n", "<leader>gP", "<Cmd>:Git push<CR>", { desc = 'Execute [G]it [P]ush command' })
+vim.keymap.set("n", "<leader>gt", ":Git push --set-upstream origin ", { desc = 'Start [G]it push with [T]racking' })
+vim.keymap.set("n", "<leader>gc", ":Git checkout ", { desc = 'Start [G]it [C]heckout command' })
+vim.keymap.set("n", "<leader>gC", ":Git checkout -b ", { desc = 'Start [G]it [C]heckout -b command' })
+
 -- OIL.NVIM
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory on OIL" })
 
