@@ -43,33 +43,36 @@ require('telescope').setup {
     },
   },
   pickers = {
-    find_files = {
-    theme = "dropdown",
-    hidden = true,
-    find_command = {
-        "rg",
-        "--files",
-        "--hidden",
-        "--no-ignore",
-        "--glob=!**/.git/*",
-        "--glob=!**/.idea/*",
-        "--glob=!**/.vscode/*",
-        "--glob=!**/build/*",
-        "--glob=!**/dist/*",
-        "--glob=!**/yarn.lock",
-        "--glob=!**/package-lock.json",
-        "--glob=!**/.angular/*",
-        "--glob=!**/node_modules/*",
-        "--glob=!**/.github/*",
-        "--glob=!**.cache",
-        "--glob=!**/vendor/*",
-        "--glob=!**/public/*",
-        "--glob=!**/storage/api-docs",
-        "--glob=!**/storage/app",
-        "--glob=!**/storage/framework",
-        "--glob=!**/storage/docs",
-      },
+    git_files = {
+      theme = "dropdown",
     },
+    find_files = {
+      theme = "dropdown",
+      hidden = true,
+      find_command = {
+          "rg",
+          "--files",
+          "--hidden",
+          "--no-ignore",
+          "--glob=!**/.git/*",
+          "--glob=!**/.idea/*",
+          "--glob=!**/.vscode/*",
+          "--glob=!**/build/*",
+          "--glob=!**/dist/*",
+          "--glob=!**/yarn.lock",
+          "--glob=!**/package-lock.json",
+          "--glob=!**/.angular/*",
+          "--glob=!**/node_modules/*",
+          "--glob=!**/.github/*",
+          "--glob=!**.cache",
+          "--glob=!**/vendor/*",
+          "--glob=!**/public/*",
+          "--glob=!**/storage/api-docs",
+          "--glob=!**/storage/app",
+          "--glob=!**/storage/framework",
+          "--glob=!**/storage/docs",
+        },
+      },
   },
 }
 
@@ -86,8 +89,8 @@ vim.keymap.set('n', '<leader>/', function()
   })
 end, { desc = '[/] Fuzzily search in current buffer' })
 
-vim.keymap.set('n', '<leader>gf', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
-vim.keymap.set('n', '<C-P>', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
+vim.keymap.set('n', '<C-P>', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
+vim.keymap.set('n', '<leader>pf', require('telescope.builtin').find_files, { desc = '[P]ick [F]iles' })
 vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
 vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
 vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
