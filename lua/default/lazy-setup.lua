@@ -143,6 +143,7 @@ require('lazy').setup({
   {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
+    config = function () require("harpoon"):setup() end,
   },
 
   {
@@ -159,8 +160,9 @@ require('lazy').setup({
              [[ \/_/\/_/\/____/\/___/  \/__/    \/_/\/_/\/_/\/_/]],
          }
          dashboard.section.buttons.val = {
-             dashboard.button( "CTRL-P", "  Find files"),
-             dashboard.button( "SPC-/", "  Open recent"),
+             dashboard.button( "CTRL-P", "  Open Git Files Search"),
+             dashboard.button( "SPC-pf", "  Open find Files Search"),
+             dashboard.button( "SPC-/", "  Open Recent"),
              dashboard.button( "SPC-e", "  Open file tree"),
              dashboard.button( "q", "󰅚  Quit NVIM" , ":qa<CR>"),
          }

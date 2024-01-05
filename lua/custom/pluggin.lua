@@ -1,6 +1,3 @@
--- HARPOON
-require("harpoon"):setup()
-
 -- ESLINT
 require('lspconfig').eslint.setup({
   pattern = { 'javascript', 'typescript', 'javascriptreact', 'typescriptreact' },
