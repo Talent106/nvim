@@ -44,7 +44,7 @@ vim.keymap.set("n", "<leader>gc", ":Git checkout ", { desc = 'Start [G]it [C]hec
 vim.keymap.set("n", "<leader>gC", ":Git checkout -b ", { desc = 'Start [G]it [C]heckout -b command' })
 
 -- OIL.NVIM
-vim.keymap.set("n", "<leader>e", "<CMD>Oil<CR>", { desc = "Open parent directory on OIL" })
+vim.keymap.set("n", "<leader>e", "<CMD>:Explore<CR>", { desc = "Execute [E]xplore command (Netrw)" })
 
 -- COPILOT
 vim.api.nvim_set_keymap("i", "<C-a>", 'copilot#Accept("<CR>")', { silent = true, expr = true })

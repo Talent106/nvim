@@ -134,13 +134,6 @@ require('lazy').setup({
   },
 
   {
-    'stevearc/oil.nvim',
-    opts = {},
-    -- Optional dependencies
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-  },
-
-  {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
     config = function () require("harpoon"):setup() end,
