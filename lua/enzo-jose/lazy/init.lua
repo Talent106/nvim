@@ -22,6 +22,12 @@ require('lazy').setup({
   { 'numToStr/Comment.nvim', opts = {} },
 
   {
+    'lukas-reineke/indent-blankline.nvim',
+    main = 'ibl',
+    opts = {},
+  },
+
+  {
     'github/copilot.vim',
     config = function()
       vim.api.nvim_set_keymap("i", "<C-a>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
@@ -40,10 +46,5 @@ require('lazy').setup({
     },
   },
 
-  {
-    'lukas-reineke/indent-blankline.nvim',
-    main = 'ibl',
-    opts = {},
-  },
   { import = 'enzo-jose.lazy.plugins' }
 }, {})
