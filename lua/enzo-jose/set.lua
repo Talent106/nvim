@@ -1,4 +1,21 @@
--- CUSTOM EDITOR CONFIG
+-- EDITOR CONFIG
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+
+vim.o.hlsearch = false
+vim.wo.number = true
+vim.o.mouse = 'a'
+vim.o.clipboard = 'unnamedplus'
+vim.o.breakindent = true
+vim.o.undofile = true
+vim.o.ignorecase = true
+vim.o.smartcase = true
+vim.wo.signcolumn = 'yes'
+vim.o.updatetime = 250
+vim.o.timeoutlen = 300
+vim.o.completeopt = 'menuone,noselect'
+vim.o.termguicolors = true
+
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
@@ -9,10 +26,28 @@ vim.opt.scrolloff = 8
 
 vim.opt.colorcolumn = "120"
 
--- Copilot
+--------------------
+-- COPILOT
+--------------------
 vim.g.copilot_assume_mapped = true
 
+--------------------
+-- YANK HIGHLIGHT
+--------------------
+local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
+
+vim.api.nvim_create_autocmd('TextYankPost', {
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+  group = highlight_group,
+  pattern = '*',
+})
+
+
+--------------------
 -- FORMAT ON SAVE
+--------------------
 vim.api.nvim_create_autocmd(
   "BufWritePre",
   {
@@ -21,13 +56,17 @@ vim.api.nvim_create_autocmd(
   }
 )
 
+--------------------------------
 -- CONFIG DOTENV FILES ON SAVE
+--------------------------------
 vim.api.nvim_create_autocmd({ 'BufEnter', 'BufNewFile' }, {
   pattern = '.env*',
   command = 'set filetype=conf',
 })
 
+----------------------
 -- DOTENV FILES SETUP
+----------------------
 vim.filetype.add({
   -- Detect and assign filetype based on the extension of the filename
   extension = {
