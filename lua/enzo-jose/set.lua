@@ -11,7 +11,7 @@ vim.o.undofile = true
 vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.wo.signcolumn = 'yes'
-vim.o.updatetime = 250
+vim.o.updatetime = 50
 vim.o.timeoutlen = 300
 vim.o.completeopt = 'menuone,noselect'
 vim.o.termguicolors = true
@@ -47,13 +47,13 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 --------------------
 -- FORMAT ON SAVE
 --------------------
-vim.api.nvim_create_autocmd(
-  "BufWritePre",
-  {
-    pattern = { 'javascript', 'typescript', 'javascriptreact', 'typescriptreact', '*.html', '*.php', '*.lua' },
-    callback = function() vim.lsp.buf.format() end
-  }
-)
+-- vim.api.nvim_create_autocmd(
+--   "BufWritePre",
+--   {
+--     pattern = { 'javascript', 'typescript', 'javascriptreact', 'typescriptreact', '*.html', '*.php' },
+--     callback = function() vim.lsp.buf.format() end
+--   }
+-- )
 
 --------------------------------
 -- CONFIG DOTENV FILES ON SAVE

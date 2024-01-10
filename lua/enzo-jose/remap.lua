@@ -24,6 +24,9 @@ vim.keymap.set("x", "<leader>p", [["_dP]])
 --  SAVE ALL FILES
 vim.keymap.set("n", "<leader>W", "<Cmd>:wa<CR>")
 
+-- FORMAT CODE
+vim.keymap.set("n", "<leader>f", function() vim.lsp.buf.format() end)
+
 -- REMOVE Q KEYMAP
 vim.keymap.set("n", "Q", "<nop>")
 
