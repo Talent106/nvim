@@ -3,11 +3,26 @@ return {
   branch = "harpoon2",
   config = function()
     local harpoon = require("harpoon")
+    local fontSize = 1.2;
+    local paddingRadio = vim.api.nvim_list_uis()[1].width > 175 and 0.50 or 0.90
 
-    harpoon:setup()
+    harpoon:setup({
+      default = {
+        display = function(list_item)
+          local strLen = string.len(list_item.value)
+          local maxLen = math.floor((vim.api.nvim_list_uis()[1].width * paddingRadio) / fontSize)
 
+          return strLen > maxLen
+              and '...' .. string.sub(list_item.value, strLen - maxLen, strLen)
+              or list_item.value
+        end
+      }
+    })
+
+    local openQuickMenu = function() harpoon.ui:toggle_quick_menu(harpoon:list(), { ui_width_ratio = paddingRadio }) end
+
+    vim.keymap.set("n", "<C-e>", openQuickMenu, { desc = 'Open Harpoon Window' })
     vim.keymap.set("n", "<leader>a", function() harpoon:list():append() end, { desc = 'Add to Harpoon list' })
-    vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = 'Open Harpoon Window' })
 
     vim.keymap.set("n", "<leader>h", function() harpoon:list():select(1) end, { desc = 'Go to Harpoon mark 1' })
     vim.keymap.set("n", "<leader>j", function() harpoon:list():select(2) end, { desc = 'Go to Harpoon mark 2' })
