@@ -8,6 +8,7 @@ if not vim.loop.fs_stat(lazypath) then
     'https://github.com/folke/lazy.nvim.git',
     '--branch=stable', -- latest stable release
     lazypath,
+
   }
 end
 
@@ -46,5 +47,5 @@ require('lazy').setup({
     },
   },
 
-  { import = 'enzo-jose.lazy.plugins' }
+  { import = 'enzo-jose.lazy.plugins' },
 }, {})
