@@ -5,6 +5,10 @@ return {
     local harpoon = require("harpoon")
 
     harpoon:setup({
+      settings = {
+        save_on_toggle = false,
+        sync_on_ui_close = false,
+      },
       default = {
         display = function(list_item)
           local fontSize = 1.2;
