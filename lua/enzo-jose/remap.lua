@@ -22,7 +22,8 @@ vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
 --  SAVE ALL FILES
-vim.keymap.set("n", "<leader>W", "<Cmd>:wa<CR>")
+vim.keymap.set("n", "<leader>w", "<Cmd>:wa<CR>")
+vim.keymap.set("n", "<C-s>", "<Cmd>:wa<CR>")
 
 -- FORMAT CODE
 vim.keymap.set("n", "<leader>f", function() vim.lsp.buf.format() end)
@@ -32,3 +33,6 @@ vim.keymap.set("n", "Q", "<nop>")
 
 -- OPEN NETRW ON CURRENT FILE DIRECTORY
 vim.keymap.set("n", "<leader>e", "<CMD>:Explore<CR>", { desc = "Execute [E]xplore command (Netrw)" })
+
+-- QUIT INSERT AND VISUAL MODE
+vim.keymap.set({"i", "v"}, "<C-c>", "<ESC>")
