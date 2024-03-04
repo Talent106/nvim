@@ -2,7 +2,6 @@ return {
   'nvim-treesitter/nvim-treesitter',
   dependencies = {
     'nvim-treesitter/nvim-treesitter-textobjects',
-    { "nvim-treesitter/nvim-treesitter-angular" },
     {
       "nvim-treesitter/nvim-treesitter-context",
       opts = { mode = "cursor", max_lines = 1 }
@@ -26,8 +25,6 @@ return {
         'vim',
         'dot',
         'bash',
-        -- 'blade',
-        'angular',
       },
       auto_install = true,
       highlight = { enable = true },
