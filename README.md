@@ -6,3 +6,5 @@ Started using <a href="https://github.com/nvim-lua/kickstart.nvim">kickstart.nvi
 <b>
     <a href="https://github.com/BurntSushi/ripgrep">ripgrep</a> is required.
 </b>
+<br>
+<b> install xclip (on linux) to sync clipboard </b>
