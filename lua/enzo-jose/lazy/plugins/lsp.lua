@@ -43,7 +43,6 @@ return {
             angularls = {},
             jsonls = {},
             phpactor = {},
-            -- intelephense = {},
             tailwindcss = {},
             tsserver = {},
             html = { filetypes = { 'html', 'twig', 'hbs' } },
