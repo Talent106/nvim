@@ -1,14 +1,14 @@
 return {
-    -- {
-    --     "folke/tokyonight.nvim",
-    --     lazy = false,
-    --     priority = 1000,
-    --     opts = {},
-    --     config = function()
-    --         -- tokyonight-night, tokyonight-storm, tokyonight-day, tokyonight-moon
-    --         vim.cmd.colorscheme "tokyonight-moon"
-    --     end,
-    -- },
+    {
+        "folke/tokyonight.nvim",
+        lazy = false,
+        priority = 1000,
+        opts = {},
+        config = function()
+            -- tokyonight-night, tokyonight-storm, tokyonight-day, tokyonight-moon
+            vim.cmd.colorscheme "tokyonight"
+        end,
+    },
     -- {
     --     "catppuccin/nvim",
     --     name = "catppuccin",
@@ -41,10 +41,10 @@ return {
     --         vim.cmd.colorscheme "palenightfall"
     --     end,
     -- },
-    {
-        'AlexvZyl/nordic.nvim',
-        lazy = false,
-        priority = 1000,
-        config = function() vim.cmd.colorscheme 'nordic' end
-    }
+    -- {
+    --     'AlexvZyl/nordic.nvim',
+    --     lazy = false,
+    --     priority = 1000,
+    --     config = function() vim.cmd.colorscheme 'nordic' end
+    -- }
 }
