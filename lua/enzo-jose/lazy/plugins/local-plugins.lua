@@ -4,7 +4,7 @@ return {
         config = function ()
             local quickNotes = require('quick-notes');
 
-            quickNotes:setup({open_command = 'vsplit', notes_dir = '/Documentos/Notes'});
+            quickNotes:setup({open_command = 'vsplit', notes_dir = '/Work/Notes'});
 
             vim.keymap.set("n", "<leader>Qq", function() quickNotes:toggle() end, { desc = 'Toggle Quick Menu' });
             vim.keymap.set("n", "<leader>Ql", function() quickNotes:openLastNote() end, { desc = 'Open last open note' });
