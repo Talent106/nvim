@@ -35,4 +35,5 @@ vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "<leader>e", "<CMD>:Explore<CR>", { desc = "Execute [E]xplore command (Netrw)" })
 
 -- QUIT INSERT AND VISUAL MODE
-vim.keymap.set({"i", "v"}, "tt", "<ESC>")
+vim.keymap.set({"i", "v"}, "<C-c>", "<ESC>")
+vim.keymap.set({"i"}, "jj", "<ESC>")
