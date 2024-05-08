@@ -10,6 +10,9 @@ return {
         },
     },
     config = function()
+        -- cursor,  dropdown, ivy
+        local dropdownTheme = 'ivy'
+
         require('telescope').setup {
             defaults = {
                 path_display = {
@@ -55,17 +58,23 @@ return {
                 },
             },
             pickers = {
-                git_files = {
-                    theme = "dropdown",
-                },
+                git_files = { theme = dropdownTheme, },
+                oldfiles = { theme = dropdownTheme, },
+                buffers = { theme = dropdownTheme, },
+                help_tags = { theme = dropdownTheme, },
+                grep_string = { theme = dropdownTheme, },
+                live_grep = { theme = dropdownTheme, },
+                diagnostics = { theme = dropdownTheme, },
+                resume = { theme = dropdownTheme, },
                 find_files = {
-                    theme = "dropdown",
+                    theme = dropdownTheme,
                     hidden = true,
                     find_command = {
                         "rg",
                         "--files",
                         "--hidden",
                         "--no-ignore",
+
                         "--glob=!**/.git/*",
                         "--glob=!**/.idea/*",
                         "--glob=!**/.vscode/*",
