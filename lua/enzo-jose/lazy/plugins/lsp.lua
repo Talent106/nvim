@@ -49,12 +49,8 @@ return {
             jsonls = {},
             phpactor = {},
             tailwindcss = {},
-            tsserver = {
-                cmd = { 'typescript-language-server', '--stdio' },
-                filetypes = { 'javascript', 'javascriptreact', 'javascript.jsx', 'typescript', 'typescriptreact', 'typescript.tsx' },
-            },
+            tsserver = {},
             html = { filetypes = { 'html', 'twig', 'hbs' } },
-
             lua_ls = {
                 Lua = {
                     workspace = { checkThirdParty = false },
@@ -71,7 +67,6 @@ return {
 
         -- Ensure the servers above are installed
         local mason_lspconfig = require 'mason-lspconfig'
-
         mason_lspconfig.setup { ensure_installed = vim.tbl_keys(servers) }
 
         mason_lspconfig.setup_handlers {
@@ -95,6 +90,26 @@ return {
                 })
             end,
         })
+
+        -- TSSERVER
+        require('lspconfig').tsserver.setup {
+            on_attach = on_attach,
+            capabilities = capabilities,
+            default_config = {
+                cmd = { 'typescript-language-server', '--stdio' },
+                filetypes = { 'javascript', 'javascriptreact', 'javascript.jsx', 'typescript', 'typescriptreact', 'typescript.tsx' },
+            }
+        }
+
+        -- ANGULARLS
+        require('lspconfig').angularls.setup {
+            on_attach = on_attach,
+            capabilities = capabilities,
+            default_config = {
+                cmd = { 'angular-language-server', '--stdio' },
+                filetypes = { 'typescript', 'html' },
+            }
+        }
 
         -- PHPACTOR
         require('lspconfig').phpactor.setup {
