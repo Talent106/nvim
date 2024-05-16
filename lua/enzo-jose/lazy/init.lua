@@ -30,7 +30,7 @@ require('lazy').setup({
     {
         'github/copilot.vim',
         config = function()
-            vim.api.nvim_set_keymap("i", "<C-a>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
+            vim.api.nvim_set_keymap("i", "<Tab>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
         end
     },
 

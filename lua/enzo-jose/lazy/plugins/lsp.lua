@@ -118,9 +118,6 @@ return {
             default_config = {
                 cmd = { 'phpactor', 'language-server', '-vvv' },
                 filetypes = { 'php' },
-                root_dir = function()
-                    return vim.fn.expand('%:p:h')
-                end,
             },
             init_options = {
                 ["language_server_phpstan.enabled"] = true,
