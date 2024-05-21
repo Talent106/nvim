@@ -18,8 +18,15 @@ require('lazy').setup({
     'tpope/vim-sleuth',
     'nvim-lua/plenary.nvim',
 
-    { 'folke/which-key.nvim',  opts = {} },
-    { 'numToStr/Comment.nvim', opts = {} },
+    { 'folke/which-key.nvim',           opts = {} },
+    {
+        'numToStr/Comment.nvim',
+        opts = {},
+        config = function()
+            require('Comment.config'):get()
+            vim.keymap.set({'n', 'v'}, '<C-/>', require('Comment.api').toggle.linewise.current)
+        end,
+    },
 
     {
         'lukas-reineke/indent-blankline.nvim',
@@ -30,7 +37,7 @@ require('lazy').setup({
     {
         'github/copilot.vim',
         config = function()
-            vim.api.nvim_set_keymap("i", "<Tab>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
+            vim.api.nvim_set_keymap("i", "<C-b>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
         end
     },
 
