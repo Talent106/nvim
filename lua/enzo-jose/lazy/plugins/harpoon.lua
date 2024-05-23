@@ -6,8 +6,7 @@ return {
 
         harpoon:setup({
             settings = {
-                save_on_toggle = false,
-                sync_on_ui_close = false,
+                sync_on_ui_close = true,
             },
             default = {
                 display = function(list_item)

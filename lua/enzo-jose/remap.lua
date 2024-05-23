@@ -26,7 +26,7 @@ vim.keymap.set("n", "<leader>w", "<Cmd>:wa<CR>")
 vim.keymap.set("n", "<C-s>", "<Cmd>:wa<CR>")
 
 -- CLOSE TAG
-vim.keymap.set("n", "<leader>tc", "<Cmd>:tabclose<CR>", {desc = "[T]ab [C]lose"})
+vim.keymap.set("n", "<leader>Ct", "<Cmd>:tabclose<CR>", {desc = "[T]ab [C]lose"})
 
 -- FORMAT CODE
 vim.keymap.set("n", "<leader>f", function() vim.lsp.buf.format() end)

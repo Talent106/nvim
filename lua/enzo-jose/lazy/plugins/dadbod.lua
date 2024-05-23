@@ -13,6 +13,7 @@ return {
         })
 
         vim.g.db_ui_use_nerd_fonts = 1;
-        vim.keymap.set("n", "<leader>db", "<Cmd>:tabnew+DBUIToggle<CR>", {desc = "Open [DB] UI"});
+        vim.keymap.set("n", "<leader>dB", "<Cmd>:tabnew+DBUIToggle<CR>", {desc = "Open [DB] UI"});
+        vim.keymap.set("n", "<leader>db", "<Cmd>:DBUIToggle<CR>", {desc = "Open [DB] UI"});
     end
 }
