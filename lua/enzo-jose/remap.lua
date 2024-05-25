@@ -27,7 +27,7 @@ vim.keymap.set("n", "<leader>w", "<Cmd>:wa<CR>")
 vim.keymap.set("n", "<C-s>", "<Cmd>:wa<CR>")
 
 -- CLOSE TAG
-vim.keymap.set("n", "<leader>Ct", "<Cmd>:tabclose<CR>", {desc = "[T]ab [C]lose"})
+vim.keymap.set("n", "<leader>Ct", "<Cmd>:tabclose<CR>", { desc = "[T]ab [C]lose" })
 
 -- FORMAT CODE
 vim.keymap.set("n", "<leader>f", function() vim.lsp.buf.format() end)
@@ -36,5 +36,8 @@ vim.keymap.set("n", "<leader>f", function() vim.lsp.buf.format() end)
 vim.keymap.set("n", "Q", "<nop>")
 
 -- QUIT INSERT AND VISUAL MODE
-vim.keymap.set({"i", "v"}, "<C-c>", "<ESC>")
-vim.keymap.set({"i"}, "jj", "<ESC>")
+vim.keymap.set({ "i", "v" }, "<C-c>", "<ESC>")
+vim.keymap.set({ "i" }, "jj", "<ESC>")
+
+-- OPEN NETRW ON CURRENT FILE DIRECTORY
+vim.keymap.set("n", "<leader>-", "<CMD>:Explore<CR>", { desc = "Execute [E]xplore command (NETRW)" })
