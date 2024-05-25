@@ -47,6 +47,7 @@ return {
         local servers = {
             angularls = {},
             jsonls = {},
+            eslint = {},
             phpactor = {},
             tailwindcss = {},
             tsserver = {},
