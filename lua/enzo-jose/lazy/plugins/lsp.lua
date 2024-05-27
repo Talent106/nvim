@@ -48,7 +48,8 @@ return {
             angularls = {},
             jsonls = {},
             eslint = {},
-            phpactor = {},
+            -- phpactor = {},
+            intelephense = {},
             tailwindcss = {},
             tsserver = {},
             html = { filetypes = { 'html', 'twig', 'hbs' } },
@@ -112,25 +113,24 @@ return {
             }
         }
 
-        -- PHPACTOR
-        require('lspconfig').phpactor.setup {
+        -- INTELEPHENSE
+        require('lspconfig').intelephense.setup {
             on_attach = on_attach,
             capabilities = capabilities,
-            default_config = {
-                cmd = { 'phpactor', 'language-server', '-vvv' },
-                filetypes = { 'php' },
-            },
-            init_options = {
-                ["language_server_phpstan.enabled"] = true,
-                ["language_server_php_cs_fixer.enabled"] = true,
-                ["language_server.diagnostics_on_update"] = false,
-                ["indexer.exclude_patterns"] = {
-                    "/vendor/**/Tests/**/*",
-                    "/vendor/**/tests/**/*",
-                    "/var/cache/**/*",
-                    "/vendor/composer/**/*"
-                },
-            }
         }
+
+        -- PHPACTOR
+        -- require('lspconfig').phpactor.setup {
+        --     on_attach = on_attach,
+        --     capabilities = capabilities,
+        --     default_config = {
+        --         cmd = { 'phpactor-language-server', '--stdio' },
+        --         init_options = {
+        --             ["language_server_phpstan.enabled"] = false,
+        --             ["language_server_php_cs_fixer.enabled"] = true,
+        --             ["language_server.diagnostics_on_update"] = false
+        --         }
+        --     }
+        -- }
     end
 }
