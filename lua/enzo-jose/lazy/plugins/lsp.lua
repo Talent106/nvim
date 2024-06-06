@@ -45,9 +45,8 @@ return {
         end
 
         local servers = {
-            -- phpactor = {},
-            intelephense = {},
-            angularls = {},
+            phpactor = {},
+            -- intelephense = {},
             jsonls = {},
             eslint = {},
             tailwindcss = { filetypes = { 'html', 'twig', 'hbs' } },
@@ -103,40 +102,28 @@ return {
             }
         }
 
-        -- ANGULARLS
-        require('lspconfig').angularls.setup {
-            on_attach = on_attach,
-            capabilities = capabilities,
-            default_config = {
-                cmd = { 'angular-language-server', '--stdio' },
-                filetypes = { 'typescript', 'html' },
-            }
-        }
-
         -- INTELEPHENSE
-        require('lspconfig').intelephense.setup {
-            on_attach = on_attach,
-            capabilities = capabilities,
-            filetypes = { 'php' }
-        }
-
-        -- PHPACTOR
-        -- require('lspconfig').phpactor.setup {
+        -- require('lspconfig').intelephense.setup {
         --     on_attach = on_attach,
         --     capabilities = capabilities,
-        --     cmd = { 'phpactor', 'language-server' },
-        --     filetypes = { 'php' },
-        --     init_options = {
-        --         ["language_server_phpstan.enabled"] = false,
-        --         ["language_server_php_cs_fixer.enabled"] = false,
-        --         ["language_server.diagnostics_on_update"] = false,
-        --         ["indexer.exclude_patterns"] = {
-        --             "/vendor/**/Tests/**/*",
-        --             "/vendor/**/tests/**/*",
-        --             "/var/cache/**/*",
-        --             "/vendor/composer/**/*"
-        --         },
-        --     }
+        --     filetypes = { 'php' }
         -- }
+
+        -- PHPACTOR
+        require('lspconfig').phpactor.setup {
+            on_attach = on_attach,
+            capabilities = capabilities,
+            init_options = {
+                ["language_server_phpstan.enabled"] = true,
+                ["language_server_php_cs_fixer.enabled"] = true,
+                ["language_server.diagnostics_on_update"] = false,
+                ["indexer.exclude_patterns"] = {
+                    "/vendor/**/Tests/**/*",
+                    "/vendor/**/tests/**/*",
+                    "/var/cache/**/*",
+                    "/vendor/composer/**/*"
+                },
+            }
+        }
     end
 }
