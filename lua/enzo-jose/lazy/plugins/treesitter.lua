@@ -84,6 +84,20 @@ return {
             },
         }
 
+        local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+        parser_config.blade = {
+            install_info = {
+                url = "https://github.com/EmranMR/tree-sitter-blade",
+                files = { "src/parser.c" },
+                branch = "main",
+            },
+            filetype = "blade"
+        }
+
+        vim.filetype.add({
+            pattern = { ['.*%.blade%.php'] = 'blade', },
+        })
+
         -- Diagnostic keymaps
         vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
         vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
