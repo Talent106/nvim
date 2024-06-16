@@ -30,7 +30,7 @@ vim.keymap.set("n", "<C-s>", "<Cmd>:wa<CR>")
 vim.keymap.set("n", "<leader>Ct", "<Cmd>:tabclose<CR>", { desc = "[T]ab [C]lose" })
 
 -- FORMAT CODE
-vim.keymap.set("n", "<leader>f", function() vim.lsp.buf.format() end)
+vim.keymap.set("n", "<leader>f", function() vim.lsp.buf.format({ formatting_options = { tabSize = 4 } }) end)
 
 -- REMOVE Q KEYMAP
 vim.keymap.set("n", "Q", "<nop>")
